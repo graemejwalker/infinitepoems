@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+    <meta charset="utf-8">
+    <title>ATTEMPT</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="number-input">
+  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+  <input id="quantity" min="0" name="" value="5" type="number" />
+  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+</div>
+    <div style="text-align: center;"><button id="go-button" title="Generate New Poem"><img border="0" src="" width="20" /></button> <br />
+<div id="result" style="font-size: 2em; line-height: 2em; text-align: center;"></div>
+<div class="notice">Attempt by <a href="https://graemewalker.art" target="_blank">Graeme Walker</a> © 2019</div>
+
+</div>
+<script>const things = [
+  "I didn’t know</br>",
+  "It came before me</br>",
+  "Now's the time</br>",
+  "Gone so fast</br>",
+  "Don't do a thing</br>",
+  "Stillness comes</br>",
+  "Silence come</br>",
+  "At once</br>",
+  "No warning</br>",
+  "I woke</br>",
+  "I cried</br>",
+  "Bitter rain</br>",
+  "Wind blown sand</br>",
+  "Carried, held</br>",
+  "We slowly dig</br>",
+  "My final breath</br>",
+  "Life 'til death</br>",
+  "Like canyon waters</br>",
+  "Like falling stones</br>",
+  "Thrice wrapped</br>",
+  "Like bedrock</br>",
+  "No-thing to hold</br>",
+  "Nothing listens</br>",
+  "Danced and danced</br>",
+  "Spun around</br>",
+  "It was you</br>",
+  "I saw them fall</br>",
+  "We cried and</br>",
+  "These tremours quake</br>",
+  "In this life</br>",
+  "In this world</br>",
+  "We listen and</br>",
+  "My arms open</br>",
+  "Peace, please come</br>",
+  "This room, filled</br>",
+  "Filled with thought</br>",
+  "In mirrored glass</br>",
+  "I lived, I lived</br>",
+  "This room, alive</br>",
+  "This light I feel</br>",
+  "The beat</br>",
+  "This coloured light</br>",
+  "Forgotten paths</br>",
+  "And now</br>",
+  "Felt it</br>",
+  "The skin</br>",
+  "I held my hand</br>",
+  "When it is time</br>",
+  "...</br>",
+  "...</br>",
+  "...</br>",
+  "***</br>",
+  "I know it well</br>",
+  "I said</br>",
+  "Cover my eyes</br>",
+  "Cloth wrapped</br>",
+  "Look at the words</br>",
+  "Release your breath</br>",
+  "Laugh with abandon</br>",
+  "Could not speak</br>",
+  "This was my friend</br>",
+  "My friend</br>",
+  "Now let love in</br>",
+  "I have</br>",
+  "To becalmed seas</br>",
+  "So come and</br>",
+  "Tomorrow's sky</br>",
+  "To fallow fields</br>",
+  "Like broken ice</br>",
+  "Live! Live! Live!</br>",
+  "Endings come</br>",
+  "Beginnings bright</br>",
+  "Now, strike your match!</br>",
+  "I'm sailing</br>",
+  "My bones are yours</br>",
+  "A mist will rise</br>",
+  "We carry you</br>",
+  "I'm river silt</br>",
+  "Volcano flows and</br>",
+  "In sediments</br>",
+  "In soil black</br>",
+  "The gentle ash</br>",
+  "I'm tired now</br>",
+  "Come carve my name</br>",
+  "I didn't choose</br>",
+  "Finally</br>",
+  "Seed heads, brown</br>",
+  "The leaves are curled</br>",
+  "In sunburned grass</br>",
+  "The empty shell</br>",
+  "The pain has gone</br>",
+  "I lay and heal</br>",
+  "I venture blind</br>",
+  "I know the truth</br>",
+  "This life I lead</br>",
+  "This shape I had</br>",
+  "You stand alive</br>",
+  "You stand in breath</br>",
+  "You kiss my head</br>",
+  "Forgive the pain</br>",
+  "And silence fell</br>",
+  "I tried to sing</br>"
+];
+
+document.getElementById("go-button").addEventListener("click", generateWords);
+
+// Returns a random array item from the array, arr
+function randomArrayItem(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function generateWords() {
+ // The number of words to generate
+  const quantity = parseInt(document.getElementById("quantity").value);
+
+  // Empty string to store output in
+  let output = "";
+
+  for (let i = 0; i < quantity; i++) {
+   // Add a random item to output, followed by a space
+    output = output.concat(randomArrayItem(things), " ");
+  }
+
+ // Update the result display
+ document.getElementById("result").innerHTML = output;
+}</script></div>
+  </body>
+</html>
