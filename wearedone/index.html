@@ -11,6 +11,19 @@ body {font-family: 'Gabrielle';}
   .number-input input[type=number] {
  font-family: 'Gabrielle';
 }
+  .number-input button:after {
+  display: inline-block;
+  position: absolute;
+  content: '';
+  width: 2rem;
+  height: 2rem;
+  background-image: url(/minus.png);
+  background-size: 2rem;
+  transform: translate(-50%, -50%);
+}
+.number-input button.plus:after {
+  background-image: url(/plus.png);
+}
 </style>
   </head>
   <body>
