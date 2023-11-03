@@ -100,3 +100,12 @@ button {
     left: 10px;
     position: absolute;
   }
+
+@font-face {
+    font-family: 'Gabrielle';
+    src: url('Gabrielle-Regular.woff2') format('woff2'),
+        url('Gabrielle-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
