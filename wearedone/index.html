@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+    <meta charset="utf-8">
+    <title>WE ARE DONE</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="number-input">
+  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+  <input id="quantity" min="0" name="" value="5" type="number" />
+  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+</div>
+    <div style="text-align: center;"><button id="go-button" title="Generate New Poem"><img border="0" src="" width="20" /></button> <br />
+<div id="result" style="font-size: 2em; line-height: 2em; text-align: center;"></div>
+<div class="notice">Help by <a href="https://graemewalker.art" target="_blank">Graeme Walker</a> © 2023</div>
+
+</div>
+<script>const things = [
+  "Cut in half</br>",
+ "Hill fort</br>",
+ "Half moon</br>",
+ "Endless woods</br>",
+ "Fearsome goat</br>",
+ "Eat what’s there</br>",
+ "Build again</br>",
+ "Lights off</br>",
+ "Listen, silence</br>",
+ "Unbreak</br>",
+ "Pass it over</br>",
+ "Go! Make fire</br>",
+ "Stop</br>",
+ "Tie together</br>",
+ "Look around</br>",
+ "Don’t decide</br>",
+ "Morning crow</br>",
+ "Learn it</br>",
+ "Great waterfall</br>",
+ "The stream flows</br>",
+ "Die well</br>",
+ "Walk it out</br>",
+ "Tidy room</br>",
+ "Today</br>",
+ "Tomorrow</br>",
+ "Never</br>",
+ "Soon</br>",
+ "Pray for it</br>",
+ "To sleep</br>",
+ "Bring blankets</br>",
+ "Close all doors</br>",
+ "Release!</br>",
+ "Well water</br>",
+ "Bear witness</br>",
+ "Swap over</br>",
+ "Another time</br>",
+ "Maintain balance</br>",
+ "Countdown</br>",
+ "Delay everything</br>",
+ "Slow cooked</br>",
+ "Ask something</br>",
+ "Pay, leave</br>",
+ "Missing piece</br>",
+ "Sharpen knife</br>",
+ "Listen well</br>",
+ "Draw it</br>",
+ "Makes sense</br>",
+ "Walk away</br>",
+ "Have time</br>",
+ "All gone</br>",
+ "Pristine lake</br>",
+ "Like a child</br>",
+ "Hold fast</br>",
+ "Catch it</br>",
+ "Bear it</br>",
+ "And change</br>",
+ "See unseen</br>",
+ "And listen</br>",
+ "And walk and</br>",
+ "Go and</br>",
+ "Fight and</br>",
+ "Let live</br>",
+ "And die</br>",
+ "Dream alone</br>",
+ "Feel and</br>",
+ "Pause and</br>",
+ "Reflect</br>",
+ "Ignite!</br>",
+ "Read and</br>",
+ "Point it out</br>",
+ "Do less</br>",
+ "Swim and</br>",
+ "Run run run</br>",
+ "Dance alone</br>",
+ "Bit hard</br>",
+ "To choose</br>",
+ "You need little</br>",
+ "Hold hands</br>",
+ "Don't decide</br>",
+ "Will wait</br>",
+ "Fly and</br>",
+ "Cry for it</br>",
+ "Take time</br>",
+ "And pray</br>",
+ "Shout and</br>",
+ "Call and</br>",
+ "Whisper and</br>",
+ "Speak and</br>",
+ "Think and</br>",
+ "And vanish</br>",
+ "And fall</br>",
+ "And rise</br>",
+ "For yourself</br>",
+ "For you</br>",
+ "For everyone</br>",
+ "For what is lost</br>",
+ "For time</br>",
+ "For now</br>",
+ "It's over</br>",
+ "It's happening</br>",
+ "For what will be</br>",
+ "For your soul</br>",
+ "For no one</br>",
+ "Or don't or</br>",
+ "Change or</br>",
+ "Vanish or</br>",
+ "Speak or</br>",
+ "Or promise</br>",
+ "Seek shelter</br>",
+ "Or</br>",
+ "The storm comes</br>",
+ "The bird sings</br>",
+ "Stillness</br>",
+ "The stone cracks</br>",
+ "A hole</br>",
+ "The bird sings</br>",
+ "The cloud's rain</br>",
+ "A broken torch</br>",
+ "The split path</br>",
+ "A sunken tomb</br>",
+ "The shipwreck</br>",
+ "The spinning earth</br>",
+ "The turning wheel</br>",
+ "The frosted field</br>",
+ "Going alone</br>",
+ "The struck</br>",
+ "Goes down</br>",
+ "In it</br>",
+ "In the way</br>",
+ "In excess</br>",
+ "In time</br>",
+ "In dust</br>",
+ "In words</br>",
+ "In paint</br>",
+ "Stone carved</br>",
+ "Hand warmer</br>",
+ "By firesides</br>",
+ "For love</br>",
+ "Forgotten</br>",
+ "Take to water</br>",
+ "Burn</br>",
+ "Freeze</br>",
+ "Because</br>",
+ "Will</br>",
+ "Don't forget</br>",
+ "Little you need</br>",
+ "It's necessary</br>",
+ "It's unimportant</br>",
+ "The potent</br>",
+ "To mountains</br>",
+ "To caves</br>",
+ "Pull each thread</br>",
+ "Gently</br>",
+ "Finish</br>",
+ "End</br>"
+];
+
+document.getElementById("go-button").addEventListener("click", generateWords);
+
+// Returns a random array item from the array, arr
+function randomArrayItem(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function generateWords() {
+ // The number of words to generate
+  const quantity = parseInt(document.getElementById("quantity").value);
+
+  // Empty string to store output in
+  let output = "";
+
+  for (let i = 0; i < quantity; i++) {
+   // Add a random item to output, followed by a space
+    output = output.concat(randomArrayItem(things), " ");
+  }
+
+ // Update the result display
+ document.getElementById("result").innerHTML = output;
+}</script></div>
+  </body>
+</html>
