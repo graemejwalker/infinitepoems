@@ -98,7 +98,9 @@ button {
     text-align: left;
     bottom: 10px;
     left: 10px;
-    position: absolute;
+    position: fixed;
+    background-color:whitesmoke;
+    padding:5px;
   }
 
 @font-face {
